@@ -1,13 +1,75 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --game-viewport-width: 180px;
+    --game-viewport-height: 180px;
+    --game-cell-size: 16px;
+    --pixel-size: 1;
 }
+
+html, body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+canvas {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Scale up game art if we can fit it. 2x */
+@media(min-width: 360px) {
+    :root {
+        --pixel-size: 2;
+    }
+}
+/* 3x */
+@media(min-width: 540px) {
+    :root {
+        --pixel-size: 3;
+    }
+}
+/* 4x */
+@media(min-width: 720px) {
+    :root {
+        --pixel-size: 4;
+    }
+}
+/* 5x */
+@media(min-width: 900px) {
+    :root {
+        --pixel-size: 5;
+    }
+}
+/* 6x */
+@media(min-width: 1080px) {
+    :root {
+        --pixel-size: 6;
+    }
+}
+/* 7x */
+@media(min-width: 1260px) {
+    :root {
+        --pixel-size: 7;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
