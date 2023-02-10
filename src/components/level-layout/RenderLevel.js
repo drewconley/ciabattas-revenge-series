@@ -1,9 +1,18 @@
 import styles from "./RenderLevel.module.css";
 import Sprite from "../object-graphics/Sprite";
-import { CELL_SIZE } from "../../helpers/consts";
+import {
+  CELL_SIZE,
+  LEVEL_THEMES,
+  THEME_BACKGROUNDS,
+} from "../../helpers/consts";
+import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
 
 export default function RenderLevel({ spriteSheetImage }) {
   const level = {
+    theme: LEVEL_THEMES.YELLOW,
+    tilesWidth: 8,
+    tilesHeight: 8,
+
     placements: [
       // "Level 0"
       // { id: 0, x: 0, y: 0, frameCoord: "0x2" },
@@ -48,8 +57,15 @@ export default function RenderLevel({ spriteSheetImage }) {
   };
 
   return (
-    <div className={styles.fullScreenContainer}>
+    <div
+      className={styles.fullScreenContainer}
+      style={{
+        background: THEME_BACKGROUNDS[level.theme],
+      }}
+    >
       <div className={styles.gameScreen}>
+        <LevelBackgroundTilesLayer level={level} image={spriteSheetImage} />
+
         {level.placements.map((placement) => {
           // Wrap each Sprite in a positioned div
           const x = placement.x * CELL_SIZE + "px";
