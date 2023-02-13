@@ -1,8 +1,12 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { CELL_SIZE } from "../../helpers/consts";
+import { useRecoilValue } from "recoil";
+import { spriteSheetImageAtom } from "../../atoms/spriteSheetImageAtom";
 
-function Sprite({ image, frameCoord, size = 16 }) {
+function Sprite({ frameCoord, size = 16 }) {
+  const spriteSheetImage = useRecoilValue(spriteSheetImageAtom);
+
   const canvasRef = useRef();
   useEffect(() => {
     /** @type {HTMLCanvasElement} */
@@ -17,7 +21,7 @@ function Sprite({ image, frameCoord, size = 16 }) {
     const tileSheetY = Number(frameCoord.split("x")[1]);
 
     ctx.drawImage(
-      image, // Image to pull from
+      spriteSheetImage, // Image to pull from
       tileSheetX * CELL_SIZE, // Left X corner of frame
       tileSheetY * CELL_SIZE, // Top Y corner of frame
       size, //How much to crop from the sprite sheet (X)
@@ -27,7 +31,7 @@ function Sprite({ image, frameCoord, size = 16 }) {
       size, //How large to scale it (X)
       size //How large to scale it (Y)
     );
-  }, [image, frameCoord, size]);
+  }, [spriteSheetImage, frameCoord, size]);
 
   return <canvas width={size} height={size} ref={canvasRef} />;
 }

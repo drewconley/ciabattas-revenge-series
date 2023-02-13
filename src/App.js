@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { SPRITE_SHEET_SRC } from "./helpers/consts";
 import RenderLevel from "./components/level-layout/RenderLevel";
+import { useRecoilState } from "recoil";
+import { spriteSheetImageAtom } from "./atoms/spriteSheetImageAtom";
 
 function App() {
-  const [spriteSheetImage, setSpriteSheetImage] = useState(null);
+  const [spriteSheetImage, setSpriteSheetImage] =
+    useRecoilState(spriteSheetImageAtom);
 
   useEffect(() => {
     const image = new Image();
@@ -11,13 +14,13 @@ function App() {
     image.onload = () => {
       setSpriteSheetImage(image);
     };
-  }, []);
+  }, [setSpriteSheetImage]);
 
   if (!spriteSheetImage) {
     return null;
   }
 
-  return <RenderLevel spriteSheetImage={spriteSheetImage} />;
+  return <RenderLevel />;
 }
 
 export default App;
