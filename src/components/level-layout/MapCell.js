@@ -1,7 +1,7 @@
 import Sprite from "../object-graphics/Sprite";
 import { CELL_SIZE } from "../../helpers/consts";
 
-export default function MapCell({ x, y, frameCoord, image }) {
+export default function MapCell({ x, y, frameCoord }) {
   return (
     <div
       style={{
@@ -10,7 +10,7 @@ export default function MapCell({ x, y, frameCoord, image }) {
         top: y * CELL_SIZE,
       }}
     >
-      <Sprite frameCoord={frameCoord} image={image} />
+      <Sprite frameCoord={frameCoord} />
     </div>
   );
 }
