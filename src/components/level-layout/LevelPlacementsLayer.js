@@ -13,7 +13,7 @@ export default function LevelPlacementsLayer({ level }) {
 
     return (
       <div key={placement.id} style={style}>
-        <Sprite frameCoord={placement.frameCoord} />
+        {placement.renderComponent()}
       </div>
     );
   });
