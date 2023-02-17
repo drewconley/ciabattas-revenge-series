@@ -1,6 +1,9 @@
 export const CELL_SIZE = 16;
 export const SPRITE_SHEET_SRC = "/ciabattas-revenge-sprites.png";
 
+export const PLACEMENT_TYPE_HERO = "HERO";
+export const PLACEMENT_TYPE_GOAL = "GOAL";
+
 export const LEVEL_THEMES = {
   YELLOW: "YELLOW",
   BLUE: "BLUE",
