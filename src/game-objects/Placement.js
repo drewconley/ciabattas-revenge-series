@@ -7,6 +7,8 @@ export class Placement {
     this.level = level;
   }
 
+  tick() {}
+
   renderComponent() {
     return null;
   }
