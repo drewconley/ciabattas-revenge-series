@@ -1,5 +1,4 @@
 import { CELL_SIZE } from "../../helpers/consts";
-import Sprite from "../object-graphics/Sprite";
 
 export default function LevelPlacementsLayer({ level }) {
   return level.placements.map((placement) => {
