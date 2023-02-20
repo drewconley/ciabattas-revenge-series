@@ -27,15 +27,16 @@ canvas {
 /* Scale up game art if we can fit it. 2x */
 @media(min-width: 360px) {
     :root {
-        --pixel-size: 2;
+        /*--pixel-size: 2;*/
+        --pixel-size: 3; /* Using this for better screen capture layout */
     }
 }
 /* 3x */
-@media(min-width: 540px) {
-    :root {
-        --pixel-size: 3;
-    }
-}
+/*@media(min-width: 540px) {*/
+/*    :root {*/
+/*        --pixel-size: 3;*/
+/*    }*/
+/*}*/
 /* Taking these out just for recording on a small screen! */
 /* 4x */
 /*@media(min-width: 720px) {*/
