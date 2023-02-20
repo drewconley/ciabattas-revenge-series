@@ -55,6 +55,6 @@ export class LevelState {
   }
 
   destroy() {
-    // Tear down the level.
+    this.gameLoop.stop();
   }
 }

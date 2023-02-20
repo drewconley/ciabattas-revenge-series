@@ -1,5 +1,5 @@
 import styles from "./RenderLevel.module.css";
-import { LEVEL_THEMES, THEME_BACKGROUNDS } from "../../helpers/consts";
+import { THEME_BACKGROUNDS } from "../../helpers/consts";
 import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
 import LevelPlacementsLayer from "./LevelPlacementsLayer";
 import { useEffect, useState } from "react";
