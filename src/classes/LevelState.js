@@ -5,11 +5,13 @@ import {
 } from "../helpers/consts";
 import { placementFactory } from "./PlacementFactory";
 import { GameLoop } from "./GameLoop";
+import { DirectionControls } from "./DirectionControls";
 
 export class LevelState {
   constructor(levelId, onEmit) {
     this.id = levelId;
     this.onEmit = onEmit;
+    this.directionControls = new DirectionControls();
 
     //Start the level!
     this.start();
@@ -25,6 +27,10 @@ export class LevelState {
     ].map((config) => {
       return placementFactory.createPlacement(config, this);
     });
+
+    // Cache a reference to the hero
+    this.heroRef = this.placements.find((p) => p.type === PLACEMENT_TYPE_HERO);
+
     this.startGameLoop();
   }
 
@@ -36,6 +42,11 @@ export class LevelState {
   }
 
   tick() {
+    // Check for movement here...
+    if (this.directionControls.direction) {
+      this.heroRef.controllerMoveRequested(this.directionControls.direction);
+    }
+
     // Call 'tick' on any Placement that wants to update
     this.placements.forEach((placement) => {
       placement.tick();
@@ -56,5 +67,6 @@ export class LevelState {
 
   destroy() {
     this.gameLoop.stop();
+    this.directionControls.unbind();
   }
 }

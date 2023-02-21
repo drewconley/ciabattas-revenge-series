@@ -1,12 +1,17 @@
 import { Placement } from "./Placement";
 import Hero from "../components/object-graphics/Hero";
-import { DIRECTION_RIGHT, directionUpdateMap } from "../helpers/consts";
+import { directionUpdateMap } from "../helpers/consts";
 
 export class HeroPlacement extends Placement {
-  constructor(properties, level) {
-    super(properties, level);
+  controllerMoveRequested(direction) {
+    //Attempt to start moving
+    if (this.movingPixelsRemaining > 0) {
+      return;
+    }
+
+    //Start the move
     this.movingPixelsRemaining = 16;
-    this.movingPixelDirection = DIRECTION_RIGHT;
+    this.movingPixelDirection = direction;
   }
 
   tick() {
