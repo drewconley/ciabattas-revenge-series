@@ -16,6 +16,8 @@ export class Placement {
     this.travelPixelsPerFrame = 1.5;
     this.movingPixelsRemaining = 0;
     this.movingPixelDirection = DIRECTION_RIGHT;
+    this.spriteFacingDirection = DIRECTION_RIGHT;
+    this.spriteWalkFrame = 0;
   }
 
   tick() {}
