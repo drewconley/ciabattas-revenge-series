@@ -16,6 +16,19 @@ export const directionUpdateMap = {
   [DIRECTION_DOWN]: { x: 0, y: 1 },
 };
 
+export const BODY_SKINS = {
+  NORMAL: "NORMAL",
+  WATER: "WATER",
+  ICE: "ICE",
+  CONVEYOR: "CONVEYOR",
+  FIRE: "FIRE",
+  TELEPORT: "TELEPORT",
+  SCARED: "SCARED",
+};
+
+export const HERO_RUN_1 = "HERO_RUN_1";
+export const HERO_RUN_2 = "HERO_RUN_2";
+
 export const LEVEL_THEMES = {
   YELLOW: "YELLOW",
   BLUE: "BLUE",
