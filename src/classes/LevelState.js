@@ -56,6 +56,15 @@ export class LevelState {
     this.onEmit(this.getState());
   }
 
+  isPositionOutOfBounds(x, y) {
+    return (
+      x === 0 ||
+      y === 0 ||
+      x >= this.tilesWidth + 1 ||
+      y >= this.tilesHeight + 1
+    );
+  }
+
   getState() {
     return {
       theme: this.theme,
