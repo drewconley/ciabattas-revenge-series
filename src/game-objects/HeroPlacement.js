@@ -23,11 +23,35 @@ export class HeroPlacement extends Placement {
       return;
     }
 
+    //Make sure the next space is available
+    const canMove = this.canMoveToNextDestination(direction);
+    if (!canMove) {
+      return;
+    }
+
     //Start the move
     this.movingPixelsRemaining = 16;
     this.movingPixelDirection = direction;
     this.updateFacingDirection();
     this.updateWalkFrame();
+  }
+
+  canMoveToNextDestination(direction) {
+    // Is the next space in bounds?
+    const { x, y } = directionUpdateMap[direction];
+    const isOutOfBounds = this.level.isPositionOutOfBounds(
+      this.x + x,
+      this.y + y
+    );
+    if (isOutOfBounds) {
+      return false;
+    }
+
+    // Is there a solid thing here?
+    //
+    //
+
+    return true;
   }
 
   updateFacingDirection() {
