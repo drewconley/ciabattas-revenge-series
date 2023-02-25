@@ -52,7 +52,7 @@ export class HeroPlacement extends Placement {
       x: nextX,
       y: nextY,
     });
-    if (collision.withSolidTile()) {
+    if (collision.withSolidPlacement()) {
       return false;
     }
 
