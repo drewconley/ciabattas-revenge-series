@@ -1,6 +1,11 @@
-import { PLACEMENT_TYPE_HERO, PLACEMENT_TYPE_GOAL } from "../helpers/consts";
+import {
+  PLACEMENT_TYPE_HERO,
+  PLACEMENT_TYPE_GOAL,
+  PLACEMENT_TYPE_WALL,
+} from "../helpers/consts";
 import { HeroPlacement } from "../game-objects/HeroPlacement";
 import { GoalPlacement } from "../game-objects/GoalPlacement";
+import { WallPlacement } from "../game-objects/WallPlacement";
 
 class PlacementFactory {
   createPlacement(config, level) {
@@ -15,6 +20,8 @@ class PlacementFactory {
         return new HeroPlacement(config, level);
       case PLACEMENT_TYPE_GOAL:
         return new GoalPlacement(config, level);
+      case PLACEMENT_TYPE_WALL:
+        return new WallPlacement(config, level);
       default:
         console.warn("NO TYPE FOUND", config.type);
         return null;

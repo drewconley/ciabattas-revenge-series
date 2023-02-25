@@ -9,6 +9,7 @@ import {
   HERO_RUN_2,
 } from "../helpers/consts";
 import { TILES } from "../helpers/tiles";
+import { Collision } from "../classes/Collision";
 
 const heroSkinMap = {
   [BODY_SKINS.NORMAL]: [TILES.HERO_LEFT, TILES.HERO_RIGHT],
@@ -39,18 +40,23 @@ export class HeroPlacement extends Placement {
   canMoveToNextDestination(direction) {
     // Is the next space in bounds?
     const { x, y } = directionUpdateMap[direction];
-    const isOutOfBounds = this.level.isPositionOutOfBounds(
-      this.x + x,
-      this.y + y
-    );
+    const nextX = this.x + x;
+    const nextY = this.y + y;
+    const isOutOfBounds = this.level.isPositionOutOfBounds(nextX, nextY);
     if (isOutOfBounds) {
       return false;
     }
 
     // Is there a solid thing here?
-    //
-    //
+    const collision = new Collision(this, this.level, {
+      x: nextX,
+      y: nextY,
+    });
+    if (collision.withSolidTile()) {
+      return false;
+    }
 
+    // Default to allowing move
     return true;
   }
 

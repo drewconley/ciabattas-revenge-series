@@ -22,6 +22,10 @@ export class Placement {
 
   tick() {}
 
+  isSolidForBody(_body) {
+    return false;
+  }
+
   displayXY() {
     if (this.movingPixelsRemaining > 0) {
       return this.displayMovingXY();
