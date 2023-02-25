@@ -15,7 +15,7 @@ export class Collision {
     });
   }
 
-  withSolidTile() {
+  withSolidPlacement() {
     return this.placementsAtPosition.find((p) =>
       p.isSolidForBody(this.forBody)
     );
