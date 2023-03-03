@@ -7,6 +7,7 @@ import {
   BODY_SKINS,
   HERO_RUN_1,
   HERO_RUN_2,
+  Z_INDEX_LAYER_SIZE,
 } from "../helpers/consts";
 import { TILES } from "../helpers/tiles";
 import { Collision } from "../classes/Collision";
@@ -125,6 +126,10 @@ export class HeroPlacement extends Placement {
 
     // Highest in the middle of the movement
     return -2;
+  }
+
+  zIndex() {
+    return this.y * Z_INDEX_LAYER_SIZE + 1;
   }
 
   renderComponent() {
