@@ -18,6 +18,8 @@ export class Placement {
     this.movingPixelDirection = DIRECTION_RIGHT;
     this.spriteFacingDirection = DIRECTION_RIGHT;
     this.spriteWalkFrame = 0;
+
+    this.hasBeenCollected = false;
   }
 
   tick() {}
@@ -54,6 +56,10 @@ export class Placement {
       default:
         return [x, y + progressPixels];
     }
+  }
+
+  collect() {
+    this.hasBeenCollected = true;
   }
 
   zIndex() {

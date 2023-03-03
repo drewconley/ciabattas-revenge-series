@@ -4,6 +4,7 @@ import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
 import LevelPlacementsLayer from "./LevelPlacementsLayer";
 import { useEffect, useState } from "react";
 import { LevelState } from "../../classes/LevelState";
+import FlourCount from "../hud/FlourCount";
 
 export default function RenderLevel() {
   const [level, setLevel] = useState(null);
@@ -38,6 +39,7 @@ export default function RenderLevel() {
         <LevelBackgroundTilesLayer level={level} />
         <LevelPlacementsLayer level={level} />
       </div>
+      <FlourCount level={level} />
     </div>
   );
 }
