@@ -20,4 +20,10 @@ export class Collision {
       p.isSolidForBody(this.forBody)
     );
   }
+
+  withPlacementAddsToInventory() {
+    return this.placementsAtPosition.find((p) => {
+      return p.addsItemToInventoryOnCollide(this.forBody);
+    });
+  }
 }

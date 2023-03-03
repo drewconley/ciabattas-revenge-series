@@ -26,6 +26,10 @@ export class Placement {
     return false;
   }
 
+  addsItemToInventoryOnCollide() {
+    return null;
+  }
+
   displayXY() {
     if (this.movingPixelsRemaining > 0) {
       return this.displayMovingXY();
