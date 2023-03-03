@@ -52,6 +52,10 @@ export class Placement {
     }
   }
 
+  zIndex() {
+    return 1;
+  }
+
   renderComponent() {
     return null;
   }
