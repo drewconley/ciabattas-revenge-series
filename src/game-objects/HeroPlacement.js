@@ -94,6 +94,16 @@ export class HeroPlacement extends Placement {
     const { x, y } = directionUpdateMap[this.movingPixelDirection];
     this.x += x;
     this.y += y;
+    this.handleCollisions();
+  }
+
+  handleCollisions() {
+    // handle collisions!
+    const collision = new Collision(this, this.level);
+    const collideThatAddsToInventory = collision.withPlacementAddsToInventory();
+    if (collideThatAddsToInventory) {
+      console.log("HANDLE COLLISION!", collideThatAddsToInventory);
+    }
   }
 
   getFrame() {
