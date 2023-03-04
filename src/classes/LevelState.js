@@ -24,14 +24,14 @@ export class LevelState {
     this.tilesWidth = 8;
     this.tilesHeight = 8;
     this.placements = [
-      { id: 0, x: 2, y: 2, type: PLACEMENT_TYPE_HERO },
-      { id: 1, x: 6, y: 4, type: PLACEMENT_TYPE_GOAL },
-      { id: 2, x: 4, y: 4, type: PLACEMENT_TYPE_WALL },
-      { id: 3, x: 5, y: 2, type: PLACEMENT_TYPE_WALL },
-      { id: 4, x: 6, y: 6, type: PLACEMENT_TYPE_WALL },
-      { id: 5, x: 3, y: 3, type: PLACEMENT_TYPE_FLOUR },
-      { id: 6, x: 4, y: 3, type: PLACEMENT_TYPE_FLOUR },
-      { id: 7, x: 5, y: 3, type: PLACEMENT_TYPE_FLOUR },
+      { x: 2, y: 2, type: PLACEMENT_TYPE_HERO },
+      { x: 6, y: 4, type: PLACEMENT_TYPE_GOAL },
+      { x: 4, y: 4, type: PLACEMENT_TYPE_WALL },
+      { x: 5, y: 2, type: PLACEMENT_TYPE_WALL },
+      { x: 6, y: 6, type: PLACEMENT_TYPE_WALL },
+      { x: 3, y: 3, type: PLACEMENT_TYPE_FLOUR },
+      { x: 4, y: 3, type: PLACEMENT_TYPE_FLOUR },
+      { x: 5, y: 3, type: PLACEMENT_TYPE_FLOUR },
     ].map((config) => {
       return placementFactory.createPlacement(config, this);
     });
@@ -46,6 +46,16 @@ export class LevelState {
     this.gameLoop?.stop();
     this.gameLoop = new GameLoop(() => {
       this.tick();
+    });
+  }
+
+  addPlacement(config) {
+    this.placements.push(placementFactory.createPlacement(config, this));
+  }
+
+  deletePlacement(placementToRemove) {
+    this.placements = this.placements.filter((p) => {
+      return p.id !== placementToRemove.id;
     });
   }
 
