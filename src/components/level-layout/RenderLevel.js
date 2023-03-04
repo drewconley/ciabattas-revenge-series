@@ -5,6 +5,7 @@ import LevelPlacementsLayer from "./LevelPlacementsLayer";
 import { useEffect, useState } from "react";
 import { LevelState } from "../../classes/LevelState";
 import FlourCount from "../hud/FlourCount";
+import LevelCompleteMessage from "../hud/LevelCompleteMessage";
 
 export default function RenderLevel() {
   const [level, setLevel] = useState(null);
@@ -40,6 +41,7 @@ export default function RenderLevel() {
         <LevelPlacementsLayer level={level} />
       </div>
       <FlourCount level={level} />
+      {level.isCompleted && <LevelCompleteMessage />}
     </div>
   );
 }

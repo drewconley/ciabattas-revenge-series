@@ -32,6 +32,10 @@ export class Placement {
     return null;
   }
 
+  completesLevelOnCollide() {
+    return false;
+  }
+
   displayXY() {
     if (this.movingPixelsRemaining > 0) {
       return this.displayMovingXY();

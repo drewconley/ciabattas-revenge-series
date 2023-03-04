@@ -28,4 +28,10 @@ export class Collision {
       );
     });
   }
+
+  withCompletesLevel() {
+    return this.placementsAtPosition.find((p) => {
+      return p.completesLevelOnCollide();
+    });
+  }
 }

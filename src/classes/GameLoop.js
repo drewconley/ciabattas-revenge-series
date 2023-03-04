@@ -2,6 +2,7 @@ export class GameLoop {
   constructor(onStep) {
     this.onStep = onStep;
     this.rafCallback = null;
+    this.hasStopped = false;
     this.start();
   }
 
@@ -9,6 +10,9 @@ export class GameLoop {
     let previousMs;
     const step = 1 / 60;
     const tick = (timestampMs) => {
+      if (this.hasStopped) {
+        return;
+      }
       if (previousMs === undefined) {
         previousMs = timestampMs;
       }
@@ -27,6 +31,7 @@ export class GameLoop {
   }
 
   stop() {
+    this.hasStopped = true;
     cancelAnimationFrame(this.rafCallback);
   }
 }
