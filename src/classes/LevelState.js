@@ -20,6 +20,7 @@ export class LevelState {
   }
 
   start() {
+    this.isCompleted = false;
     this.theme = LEVEL_THEMES.BLUE;
     this.tilesWidth = 8;
     this.tilesHeight = 8;
@@ -83,12 +84,18 @@ export class LevelState {
     );
   }
 
+  completeLevel() {
+    this.isCompleted = true;
+    this.gameLoop.stop();
+  }
+
   getState() {
     return {
       theme: this.theme,
       tilesWidth: this.tilesWidth,
       tilesHeight: this.tilesHeight,
       placements: this.placements,
+      isCompleted: this.isCompleted,
     };
   }
 
