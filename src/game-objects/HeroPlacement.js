@@ -8,6 +8,7 @@ import {
   HERO_RUN_1,
   HERO_RUN_2,
   Z_INDEX_LAYER_SIZE,
+  PLACEMENT_TYPE_CELEBRATION,
 } from "../helpers/consts";
 import { TILES } from "../helpers/tiles";
 import { Collision } from "../classes/Collision";
@@ -103,6 +104,11 @@ export class HeroPlacement extends Placement {
     const collideThatAddsToInventory = collision.withPlacementAddsToInventory();
     if (collideThatAddsToInventory) {
       collideThatAddsToInventory.collect();
+      this.level.addPlacement({
+        type: PLACEMENT_TYPE_CELEBRATION,
+        x: this.x,
+        y: this.y,
+      });
     }
   }
 
