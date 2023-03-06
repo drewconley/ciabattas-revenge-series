@@ -67,6 +67,10 @@ export class Placement {
     this.level.inventory.add(this.addsItemToInventoryOnCollide());
   }
 
+  canBeUnlocked() {
+    return false;
+  }
+
   zIndex() {
     return 1;
   }
