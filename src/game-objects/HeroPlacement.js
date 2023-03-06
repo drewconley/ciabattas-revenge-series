@@ -26,9 +26,15 @@ export class HeroPlacement extends Placement {
       return;
     }
 
+    // Check for lock at next position
+    const possibleLock = this.getLockAtNextPosition(direction);
+    if (possibleLock) {
+      possibleLock.unlock();
+      return;
+    }
+
     //Make sure the next space is available
-    const canMove = this.canMoveToNextDestination(direction);
-    if (!canMove) {
+    if (this.isSolidAtNextPosition(direction)) {
       return;
     }
 
@@ -39,27 +45,31 @@ export class HeroPlacement extends Placement {
     this.updateWalkFrame();
   }
 
-  canMoveToNextDestination(direction) {
-    // Is the next space in bounds?
+  getCollisionAtNextPosition(direction) {
     const { x, y } = directionUpdateMap[direction];
     const nextX = this.x + x;
     const nextY = this.y + y;
-    const isOutOfBounds = this.level.isPositionOutOfBounds(nextX, nextY);
-    if (isOutOfBounds) {
-      return false;
-    }
-
-    // Is there a solid thing here?
-    const collision = new Collision(this, this.level, {
+    return new Collision(this, this.level, {
       x: nextX,
       y: nextY,
     });
-    if (collision.withSolidPlacement()) {
-      return false;
-    }
+  }
 
-    // Default to allowing move
-    return true;
+  getLockAtNextPosition(direction) {
+    const collision = this.getCollisionAtNextPosition(direction);
+    return collision.withLock();
+  }
+
+  isSolidAtNextPosition(direction) {
+    const collision = this.getCollisionAtNextPosition(direction);
+    const isOutOfBounds = this.level.isPositionOutOfBounds(
+      collision.x,
+      collision.y
+    );
+    if (isOutOfBounds) {
+      return true;
+    }
+    return Boolean(collision.withSolidPlacement());
   }
 
   updateFacingDirection() {
