@@ -64,6 +64,7 @@ export class Placement {
 
   collect() {
     this.hasBeenCollected = true;
+    this.level.inventory.add(this.addsItemToInventoryOnCollide());
   }
 
   zIndex() {
