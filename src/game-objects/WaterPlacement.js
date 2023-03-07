@@ -1,11 +1,23 @@
 import { Placement } from "./Placement";
 import Sprite from "../components/object-graphics/Sprite";
 import { TILES } from "../helpers/tiles";
-import { PLACEMENT_TYPE_HERO } from "../helpers/consts";
+import {
+  BODY_SKINS,
+  PLACEMENT_TYPE_HERO,
+  PLACEMENT_TYPE_WATER_PICKUP,
+} from "../helpers/consts";
 
 export class WaterPlacement extends Placement {
+  changesHeroSkinOnCollide() {
+    return BODY_SKINS.WATER;
+  }
+
   damagesBodyOnCollide(body) {
-    return body.type === PLACEMENT_TYPE_HERO;
+    const { inventory } = this.level;
+    return (
+      body.type === PLACEMENT_TYPE_HERO &&
+      !inventory.has(PLACEMENT_TYPE_WATER_PICKUP)
+    );
   }
 
   renderComponent() {

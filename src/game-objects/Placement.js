@@ -3,6 +3,7 @@ import {
   CELL_SIZE,
   DIRECTION_LEFT,
   DIRECTION_UP,
+  BODY_SKINS,
 } from "../helpers/consts";
 
 export class Placement {
@@ -13,6 +14,7 @@ export class Placement {
     this.y = properties.y;
     this.level = level;
 
+    this.skin = BODY_SKINS.NORMAL;
     this.travelPixelsPerFrame = 1.5;
     this.movingPixelsRemaining = 0;
     this.movingPixelDirection = DIRECTION_RIGHT;
@@ -29,6 +31,10 @@ export class Placement {
   }
 
   addsItemToInventoryOnCollide() {
+    return null;
+  }
+
+  changesHeroSkinOnCollide() {
     return null;
   }
 

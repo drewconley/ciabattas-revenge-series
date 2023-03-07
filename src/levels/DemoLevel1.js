@@ -7,6 +7,7 @@ import {
   PLACEMENT_TYPE_LOCK,
   PLACEMENT_TYPE_KEY,
   PLACEMENT_TYPE_WATER,
+  PLACEMENT_TYPE_WATER_PICKUP,
 } from "../helpers/consts";
 
 const level = {
@@ -20,6 +21,7 @@ const level = {
     { x: 4, y: 5, type: PLACEMENT_TYPE_WATER },
     { x: 3, y: 5, type: PLACEMENT_TYPE_WATER },
     { x: 4, y: 4, type: PLACEMENT_TYPE_WATER },
+    { x: 2, y: 4, type: PLACEMENT_TYPE_WATER_PICKUP },
     { x: 5, y: 2, type: PLACEMENT_TYPE_WALL },
     { x: 6, y: 6, type: PLACEMENT_TYPE_WALL },
     { x: 3, y: 3, type: PLACEMENT_TYPE_FLOUR },
