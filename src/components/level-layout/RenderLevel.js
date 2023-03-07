@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { LevelState } from "../../classes/LevelState";
 import FlourCount from "../hud/FlourCount";
 import LevelCompleteMessage from "../hud/LevelCompleteMessage";
+import DeathMessage from "../hud/DeathMessage";
 import { useRecoilValue } from "recoil";
 import { currentLevelIdAtom } from "../../atoms/currentLevelIdAtom";
 
@@ -45,6 +46,7 @@ export default function RenderLevel() {
       </div>
       <FlourCount level={level} />
       {level.isCompleted && <LevelCompleteMessage />}
+      {level.deathOutcome && <DeathMessage level={level} />}
     </div>
   );
 }
