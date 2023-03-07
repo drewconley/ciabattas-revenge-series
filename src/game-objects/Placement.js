@@ -32,6 +32,10 @@ export class Placement {
     return null;
   }
 
+  damagesBodyOnCollide(_body) {
+    return null;
+  }
+
   completesLevelOnCollide() {
     return false;
   }

@@ -6,6 +6,7 @@ import {
   PLACEMENT_TYPE_CELEBRATION,
   PLACEMENT_TYPE_LOCK,
   PLACEMENT_TYPE_KEY,
+  PLACEMENT_TYPE_WATER,
 } from "../helpers/consts";
 import { HeroPlacement } from "../game-objects/HeroPlacement";
 import { GoalPlacement } from "../game-objects/GoalPlacement";
@@ -14,6 +15,7 @@ import { FlourPlacement } from "../game-objects/FlourPlacement";
 import { CelebrationPlacement } from "../game-objects/CelebrationPlacement";
 import { LockPlacement } from "../game-objects/LockPlacement";
 import { KeyPlacement } from "../game-objects/KeyPlacement";
+import { WaterPlacement } from "../game-objects/WaterPlacement";
 
 const placementTypeClassMap = {
   [PLACEMENT_TYPE_HERO]: HeroPlacement,
@@ -23,6 +25,7 @@ const placementTypeClassMap = {
   [PLACEMENT_TYPE_CELEBRATION]: CelebrationPlacement,
   [PLACEMENT_TYPE_LOCK]: LockPlacement,
   [PLACEMENT_TYPE_KEY]: KeyPlacement,
+  [PLACEMENT_TYPE_WATER]: WaterPlacement,
 };
 
 class PlacementFactory {
