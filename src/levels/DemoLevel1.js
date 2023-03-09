@@ -8,6 +8,8 @@ import {
   PLACEMENT_TYPE_KEY,
   PLACEMENT_TYPE_WATER,
   PLACEMENT_TYPE_WATER_PICKUP,
+  PLACEMENT_TYPE_GROUND_ENEMY,
+  PLACEMENT_TYPE_FLYING_ENEMY,
 } from "../helpers/consts";
 
 const level = {
@@ -22,13 +24,14 @@ const level = {
     { x: 3, y: 5, type: PLACEMENT_TYPE_WATER },
     { x: 4, y: 4, type: PLACEMENT_TYPE_WATER },
     { x: 2, y: 4, type: PLACEMENT_TYPE_WATER_PICKUP },
-    { x: 5, y: 2, type: PLACEMENT_TYPE_WALL },
     { x: 6, y: 6, type: PLACEMENT_TYPE_WALL },
     { x: 3, y: 3, type: PLACEMENT_TYPE_FLOUR },
     { x: 4, y: 1, type: PLACEMENT_TYPE_LOCK, color: "BLUE" },
     { x: 4, y: 3, type: PLACEMENT_TYPE_LOCK, color: "GREEN" },
     { x: 1, y: 1, type: PLACEMENT_TYPE_KEY, color: "BLUE" },
     { x: 1, y: 3, type: PLACEMENT_TYPE_KEY, color: "GREEN" },
+    { x: 5, y: 2, type: PLACEMENT_TYPE_GROUND_ENEMY },
+    { x: 6, y: 7, type: PLACEMENT_TYPE_FLYING_ENEMY },
   ],
 };
 
