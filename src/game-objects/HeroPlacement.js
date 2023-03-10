@@ -18,6 +18,11 @@ const heroSkinMap = {
 };
 
 export class HeroPlacement extends BodyPlacement {
+  constructor(properties, level) {
+    super(properties, level);
+    this.canCollectItems = true;
+  }
+
   controllerMoveRequested(direction) {
     //Attempt to start moving
     if (this.movingPixelsRemaining > 0) {

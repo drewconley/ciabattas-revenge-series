@@ -12,6 +12,10 @@ export class WaterPlacement extends Placement {
     return BODY_SKINS.WATER;
   }
 
+  isSolidForBody(body) {
+    return body.turnsAroundAtWater ?? false;
+  }
+
   damagesBodyOnCollide(body) {
     const { inventory } = this.level;
     return (
