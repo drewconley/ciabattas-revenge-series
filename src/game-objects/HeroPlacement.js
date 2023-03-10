@@ -21,6 +21,7 @@ export class HeroPlacement extends BodyPlacement {
   constructor(properties, level) {
     super(properties, level);
     this.canCollectItems = true;
+    this.canCompleteLevel = true;
   }
 
   controllerMoveRequested(direction) {
