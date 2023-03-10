@@ -58,4 +58,13 @@ export class Collision {
       return p.changesHeroSkinOnCollide();
     });
   }
+
+  withPlacementMovesBody() {
+    if (this.forBody.allowsAutoMovement) {
+      return this.placementsAtPosition.find((p) => {
+        return p.autoMovesBodyOnCollide();
+      });
+    }
+    return null;
+  }
 }

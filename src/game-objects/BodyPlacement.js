@@ -79,6 +79,10 @@ export class BodyPlacement extends Placement {
     return null;
   }
 
+  onAutoMovement(_direction) {
+    return null;
+  }
+
   handleCollisions() {
     // handle collisions!
     const collision = new Collision(this, this.level);
@@ -97,6 +101,11 @@ export class BodyPlacement extends Placement {
         x: this.x,
         y: this.y,
       });
+    }
+
+    const autoMovePlacement = collision.withPlacementMovesBody();
+    if (autoMovePlacement) {
+      this.onAutoMovement(autoMovePlacement.direction);
     }
 
     const takesDamages = collision.withSelfGetsDamaged();
