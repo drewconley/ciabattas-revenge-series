@@ -72,6 +72,11 @@ export class BodyPlacement extends Placement {
     this.x += x;
     this.y += y;
     this.handleCollisions();
+    this.onPostMove();
+  }
+
+  onPostMove() {
+    return null;
   }
 
   handleCollisions() {

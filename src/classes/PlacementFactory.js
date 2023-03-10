@@ -10,6 +10,7 @@ import {
   PLACEMENT_TYPE_WATER_PICKUP,
   PLACEMENT_TYPE_GROUND_ENEMY,
   PLACEMENT_TYPE_FLYING_ENEMY,
+  PLACEMENT_TYPE_ROAMING_ENEMY,
 } from "../helpers/consts";
 import { HeroPlacement } from "../game-objects/HeroPlacement";
 import { GoalPlacement } from "../game-objects/GoalPlacement";
@@ -22,6 +23,7 @@ import { WaterPlacement } from "../game-objects/WaterPlacement";
 import { WaterPickupPlacement } from "../game-objects/WaterPickupPlacement";
 import { GroundEnemyPlacement } from "../game-objects/GroundEnemyPlacement";
 import { FlyingEnemyPlacement } from "../game-objects/FlyingEnemyPlacement";
+import { RoamingEnemyPlacement } from "../game-objects/RoamingEnemyPlacement";
 
 const placementTypeClassMap = {
   [PLACEMENT_TYPE_HERO]: HeroPlacement,
@@ -35,6 +37,7 @@ const placementTypeClassMap = {
   [PLACEMENT_TYPE_WATER_PICKUP]: WaterPickupPlacement,
   [PLACEMENT_TYPE_GROUND_ENEMY]: GroundEnemyPlacement,
   [PLACEMENT_TYPE_FLYING_ENEMY]: FlyingEnemyPlacement,
+  [PLACEMENT_TYPE_ROAMING_ENEMY]: RoamingEnemyPlacement,
 };
 
 class PlacementFactory {

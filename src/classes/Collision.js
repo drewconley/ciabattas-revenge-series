@@ -33,9 +33,12 @@ export class Collision {
   }
 
   withCompletesLevel() {
-    return this.placementsAtPosition.find((p) => {
-      return p.completesLevelOnCollide();
-    });
+    if (this.forBody.canCompleteLevel) {
+      return this.placementsAtPosition.find((p) => {
+        return p.completesLevelOnCollide();
+      });
+    }
+    return null;
   }
 
   withLock() {
