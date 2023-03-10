@@ -23,9 +23,13 @@ export class RoamingEnemyPlacement extends GroundEnemyPlacement {
       DIRECTION_DOWN,
       DIRECTION_LEFT,
       DIRECTION_RIGHT,
-    ];
-    this.movingPixelDirection =
-      directions[Math.floor(Math.random() * directions.length)];
+    ].filter((direction) => {
+      return !this.isSolidAtNextPosition(direction);
+    });
+    if (directions.length) {
+      this.movingPixelDirection =
+        directions[Math.floor(Math.random() * directions.length)];
+    }
   }
 
   renderComponent() {
