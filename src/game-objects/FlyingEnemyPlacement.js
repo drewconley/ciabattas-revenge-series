@@ -9,6 +9,7 @@ export class FlyingEnemyPlacement extends GroundEnemyPlacement {
     this.tickBetweenMovesInterval = 20;
     this.ticksUntilNextMove = this.tickBetweenMovesInterval;
     this.turnsAroundAtWater = false;
+    this.allowsAutoMovement = false;
   }
 
   renderComponent() {

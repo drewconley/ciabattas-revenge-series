@@ -7,6 +7,7 @@ import {
   DIRECTION_UP,
   DIRECTION_DOWN,
 } from "../helpers/consts";
+import { Collision } from "../classes/Collision";
 
 export class RoamingEnemyPlacement extends GroundEnemyPlacement {
   constructor(properties, level) {
@@ -14,9 +15,16 @@ export class RoamingEnemyPlacement extends GroundEnemyPlacement {
     this.tickBetweenMovesInterval = 48;
     this.ticksUntilNextMove = this.tickBetweenMovesInterval;
     this.turnsAroundAtWater = true;
+    this.allowsAutoMovement = true;
   }
 
   onPostMove() {
+    // Do not choose next move if we are on an automoving tile
+    const collision = new Collision(this, this.level);
+    if (collision.withPlacementMovesBody()) {
+      return;
+    }
+
     // Randomly choose a new direction
     const directions = [
       DIRECTION_UP,

@@ -14,6 +14,7 @@ export class GroundEnemyPlacement extends BodyPlacement {
     this.tickBetweenMovesInterval = 28;
     this.ticksUntilNextMove = this.tickBetweenMovesInterval;
     this.turnsAroundAtWater = true;
+    this.allowsAutoMovement = true;
     this.movingPixelDirection = properties.initialDirection ?? DIRECTION_RIGHT;
   }
 
@@ -54,6 +55,10 @@ export class GroundEnemyPlacement extends BodyPlacement {
     this.movingPixelDirection = direction;
     this.updateFacingDirection();
     this.updateWalkFrame();
+  }
+
+  onAutoMovement(direction) {
+    this.internalMoveRequested(direction);
   }
 
   switchDirection() {

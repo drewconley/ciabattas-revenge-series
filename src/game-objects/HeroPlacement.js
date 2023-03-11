@@ -13,6 +13,9 @@ const heroSkinMap = {
   [BODY_SKINS.NORMAL]: [TILES.HERO_LEFT, TILES.HERO_RIGHT],
   [BODY_SKINS.WATER]: [TILES.HERO_WATER_LEFT, TILES.HERO_WATER_RIGHT],
   [BODY_SKINS.DEATH]: [TILES.HERO_DEATH_LEFT, TILES.HERO_DEATH_RIGHT],
+  [BODY_SKINS.SCARED]: [TILES.HERO_DEATH_LEFT, TILES.HERO_DEATH_RIGHT],
+  [BODY_SKINS.ICE]: [TILES.HERO_ICE_LEFT, TILES.HERO_ICE_RIGHT],
+  [BODY_SKINS.CONVEYOR]: [TILES.HERO_CONVEYOR_LEFT, TILES.HERO_CONVEYOR_RIGHT],
   [HERO_RUN_1]: [TILES.HERO_RUN_1_LEFT, TILES.HERO_RUN_1_RIGHT],
   [HERO_RUN_2]: [TILES.HERO_RUN_2_LEFT, TILES.HERO_RUN_2_RIGHT],
 };
@@ -22,6 +25,7 @@ export class HeroPlacement extends BodyPlacement {
     super(properties, level);
     this.canCollectItems = true;
     this.canCompleteLevel = true;
+    this.allowsAutoMovement = true;
   }
 
   controllerMoveRequested(direction) {
@@ -43,9 +47,11 @@ export class HeroPlacement extends BodyPlacement {
     }
 
     // Maybe hop out of non-normal skin
-    const collision = this.getCollisionAtNextPosition(direction);
-    if (!collision.withChangesHeroSkin()) {
-      this.skin = BODY_SKINS.NORMAL;
+    if (this.skin === BODY_SKINS.WATER) {
+      const collision = this.getCollisionAtNextPosition(direction);
+      if (!collision.withChangesHeroSkin()) {
+        this.skin = BODY_SKINS.NORMAL;
+      }
     }
 
     //Start the move
@@ -53,6 +59,10 @@ export class HeroPlacement extends BodyPlacement {
     this.movingPixelDirection = direction;
     this.updateFacingDirection();
     this.updateWalkFrame();
+  }
+
+  onAutoMovement(direction) {
+    this.controllerMoveRequested(direction);
   }
 
   zIndex() {

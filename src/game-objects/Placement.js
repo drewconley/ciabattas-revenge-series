@@ -38,6 +38,10 @@ export class Placement {
     return null;
   }
 
+  autoMovesBodyOnCollide() {
+    return false;
+  }
+
   changesHeroSkinOnCollide() {
     return null;
   }
