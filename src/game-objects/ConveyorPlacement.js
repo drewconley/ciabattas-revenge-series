@@ -23,7 +23,7 @@ export class ConveyorPlacement extends Placement {
   }
 
   autoMovesBodyOnCollide() {
-    return true;
+    return this.direction;
   }
 
   changesHeroSkinOnCollide() {

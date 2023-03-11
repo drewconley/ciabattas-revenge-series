@@ -1,3 +1,5 @@
+import { PLACEMENT_TYPE_ICE } from "../helpers/consts";
+
 export class Collision {
   constructor(forBody, level, position = null) {
     this.forBody = forBody;
@@ -62,9 +64,15 @@ export class Collision {
   withPlacementMovesBody() {
     if (this.forBody.allowsAutoMovement) {
       return this.placementsAtPosition.find((p) => {
-        return p.autoMovesBodyOnCollide();
+        return p.autoMovesBodyOnCollide(this.forBody);
       });
     }
     return null;
+  }
+
+  withIceCorner() {
+    return this.placementsAtPosition.find((p) => {
+      return p.type === PLACEMENT_TYPE_ICE && p.corner;
+    });
   }
 }

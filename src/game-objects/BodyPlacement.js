@@ -26,6 +26,12 @@ export class BodyPlacement extends Placement {
   }
 
   isSolidAtNextPosition(direction) {
+    // Check for ice corner...
+    const onIceCorner = new Collision(this, this.level).withIceCorner();
+    if (onIceCorner?.blocksMovementDirection(direction)) {
+      return true;
+    }
+
     const collision = this.getCollisionAtNextPosition(direction);
     const isOutOfBounds = this.level.isPositionOutOfBounds(
       collision.x,
@@ -105,7 +111,7 @@ export class BodyPlacement extends Placement {
 
     const autoMovePlacement = collision.withPlacementMovesBody();
     if (autoMovePlacement) {
-      this.onAutoMovement(autoMovePlacement.direction);
+      this.onAutoMovement(autoMovePlacement.autoMovesBodyOnCollide(this));
     }
 
     const takesDamages = collision.withSelfGetsDamaged();
