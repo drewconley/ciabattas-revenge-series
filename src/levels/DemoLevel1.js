@@ -8,12 +8,14 @@ import {
   PLACEMENT_TYPE_KEY,
   PLACEMENT_TYPE_ICE,
   PLACEMENT_TYPE_WATER,
+  PLACEMENT_TYPE_FIRE,
   PLACEMENT_TYPE_CONVEYOR,
   PLACEMENT_TYPE_WATER_PICKUP,
   PLACEMENT_TYPE_ICE_PICKUP,
   PLACEMENT_TYPE_ROAMING_ENEMY,
   PLACEMENT_TYPE_GROUND_ENEMY,
   PLACEMENT_TYPE_FLYING_ENEMY,
+  PLACEMENT_TYPE_FIRE_PICKUP,
 } from "../helpers/consts";
 
 const level = {
@@ -26,16 +28,19 @@ const level = {
 
     { x: 1, y: 4, type: PLACEMENT_TYPE_CONVEYOR, direction: "DOWN" },
     { x: 1, y: 5, type: PLACEMENT_TYPE_CONVEYOR, direction: "DOWN" },
-    //
+
+    { x: 2, y: 3, type: PLACEMENT_TYPE_FIRE_PICKUP },
+    { x: 3, y: 3, type: PLACEMENT_TYPE_FIRE },
+    { x: 4, y: 3, type: PLACEMENT_TYPE_FIRE },
+    { x: 5, y: 3, type: PLACEMENT_TYPE_FIRE },
+
     { x: 3, y: 4, type: PLACEMENT_TYPE_ICE, corner: "TOP_LEFT" },
     { x: 3, y: 5, type: PLACEMENT_TYPE_ICE },
     { x: 4, y: 5, type: PLACEMENT_TYPE_ICE },
     { x: 3, y: 6, type: PLACEMENT_TYPE_ICE, corner: "BOTTOM_LEFT" },
-
     { x: 5, y: 4, type: PLACEMENT_TYPE_ICE, corner: "TOP_RIGHT" },
     { x: 5, y: 5, type: PLACEMENT_TYPE_ICE },
     { x: 5, y: 6, type: PLACEMENT_TYPE_ICE, corner: "BOTTOM_RIGHT" },
-
     { x: 4, y: 4, type: PLACEMENT_TYPE_ICE },
     { x: 4, y: 6, type: PLACEMENT_TYPE_ICE },
 
@@ -46,7 +51,7 @@ const level = {
     { x: 6, y: 2, type: PLACEMENT_TYPE_WATER_PICKUP },
     { x: 7, y: 2, type: PLACEMENT_TYPE_WATER },
 
-    { x: 5, y: 4, type: PLACEMENT_TYPE_GROUND_ENEMY },
+    // { x: 5, y: 4, type: PLACEMENT_TYPE_GROUND_ENEMY },
   ],
 };
 
