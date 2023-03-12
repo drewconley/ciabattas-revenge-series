@@ -1,5 +1,4 @@
 import { Placement } from "./Placement";
-import { TILES } from "../helpers/tiles";
 import Sprite from "../components/object-graphics/Sprite";
 import {
   PLACEMENT_TYPE_HERO,
@@ -24,6 +23,7 @@ export class FirePlacement extends Placement {
   }
 
   renderComponent() {
-    return <Sprite frameCoord={TILES.FIRE1} />;
+    const fireFrame = this.level.animatedFrames.fireFrame;
+    return <Sprite frameCoord={fireFrame} />;
   }
 }

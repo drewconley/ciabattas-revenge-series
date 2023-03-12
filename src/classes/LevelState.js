@@ -4,6 +4,7 @@ import { GameLoop } from "./GameLoop";
 import { DirectionControls } from "./DirectionControls";
 import LevelsMap from "../levels/LevelsMap";
 import { Inventory } from "./Inventory";
+import { LevelAnimatedFrames } from "./LevelAnimatedFrames";
 
 export class LevelState {
   constructor(levelId, onEmit) {
@@ -29,6 +30,9 @@ export class LevelState {
 
     // Create a fresh inventory
     this.inventory = new Inventory();
+
+    // Create a frame animation manager
+    this.animatedFrames = new LevelAnimatedFrames();
 
     // Cache a reference to the hero
     this.heroRef = this.placements.find((p) => p.type === PLACEMENT_TYPE_HERO);
@@ -63,6 +67,9 @@ export class LevelState {
     this.placements.forEach((placement) => {
       placement.tick();
     });
+
+    // Work on animation frames
+    this.animatedFrames.tick();
 
     //Emit any changes to React
     this.onEmit(this.getState());
