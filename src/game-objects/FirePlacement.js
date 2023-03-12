@@ -1,5 +1,4 @@
 import { Placement } from "./Placement";
-import { TILES } from "../helpers/tiles";
 import Sprite from "../components/object-graphics/Sprite";
 import {
   PLACEMENT_TYPE_HERO,
