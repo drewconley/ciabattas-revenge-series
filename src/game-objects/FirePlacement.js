@@ -24,6 +24,7 @@ export class FirePlacement extends Placement {
   }
 
   renderComponent() {
-    return <Sprite frameCoord={TILES.FIRE1} />;
+    const fireFrame = this.level.animatedFrames.fireFrame;
+    return <Sprite frameCoord={fireFrame} />;
   }
 }
