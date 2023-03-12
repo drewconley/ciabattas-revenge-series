@@ -114,6 +114,10 @@ export class BodyPlacement extends Placement {
       this.onAutoMovement(autoMovePlacement.autoMovesBodyOnCollide(this));
     }
 
+    if (collision.withDoorSwitch()) {
+      this.level.switchAllDoors();
+    }
+
     const takesDamages = collision.withSelfGetsDamaged();
     if (takesDamages) {
       this.level.setDeathOutcome(takesDamages.type);

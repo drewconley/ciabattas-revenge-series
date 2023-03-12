@@ -15,7 +15,7 @@ export class RoamingEnemyPlacement extends GroundEnemyPlacement {
     this.tickBetweenMovesInterval = 48;
     this.ticksUntilNextMove = this.tickBetweenMovesInterval;
     this.turnsAroundAtWater = true;
-    this.allowsAutoMovement = true;
+    this.interactsWithGround = true;
   }
 
   onPostMove() {

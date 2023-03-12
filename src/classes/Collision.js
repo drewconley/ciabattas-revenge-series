@@ -62,7 +62,7 @@ export class Collision {
   }
 
   withPlacementMovesBody() {
-    if (this.forBody.allowsAutoMovement) {
+    if (this.forBody.interactsWithGround) {
       return this.placementsAtPosition.find((p) => {
         return p.autoMovesBodyOnCollide(this.forBody);
       });
@@ -73,6 +73,12 @@ export class Collision {
   withIceCorner() {
     return this.placementsAtPosition.find((p) => {
       return p.type === PLACEMENT_TYPE_ICE && p.corner;
+    });
+  }
+
+  withDoorSwitch() {
+    return this.placementsAtPosition.find((p) => {
+      return p.switchesDoorsOnCollide(this.forBody);
     });
   }
 }
