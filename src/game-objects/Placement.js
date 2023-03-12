@@ -46,6 +46,10 @@ export class Placement {
     return null;
   }
 
+  switchesDoorsOnCollide() {
+    return null;
+  }
+
   damagesBodyOnCollide(_body) {
     return null;
   }

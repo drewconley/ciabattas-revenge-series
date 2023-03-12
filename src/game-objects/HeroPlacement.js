@@ -26,7 +26,7 @@ export class HeroPlacement extends BodyPlacement {
     super(properties, level);
     this.canCollectItems = true;
     this.canCompleteLevel = true;
-    this.allowsAutoMovement = true;
+    this.interactsWithGround = true;
   }
 
   controllerMoveRequested(direction) {

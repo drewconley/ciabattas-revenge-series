@@ -84,6 +84,14 @@ export class LevelState {
     );
   }
 
+  switchAllDoors() {
+    this.placements.forEach((placement) => {
+      if (placement.toggleIsRaised) {
+        placement.toggleIsRaised();
+      }
+    });
+  }
+
   setDeathOutcome(causeOfDeath) {
     this.deathOutcome = causeOfDeath;
     this.gameLoop.stop();
