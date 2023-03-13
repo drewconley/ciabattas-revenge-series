@@ -88,4 +88,10 @@ export class Collision {
       return Boolean(teleportPos);
     });
   }
+
+  withStealsInventory() {
+    return this.placementsAtPosition.find((p) => {
+      return p.stealsInventoryOnCollide(this.forBody);
+    });
+  }
 }

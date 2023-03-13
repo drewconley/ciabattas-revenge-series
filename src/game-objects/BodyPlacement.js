@@ -121,6 +121,11 @@ export class BodyPlacement extends Placement {
       this.level.switchAllDoors();
     }
 
+    // Resets inventory
+    if (collision.withStealsInventory()) {
+      this.level.stealInventory();
+    }
+
     // Teleports
     const teleport = collision.withTeleport();
     if (teleport) {
