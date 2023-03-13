@@ -33,6 +33,8 @@ export default function RenderLevel() {
     return null;
   }
 
+  const cameraTranslate = `translate3d(${level.cameraTransformX}, ${level.cameraTransformY}, 0)`;
+
   return (
     <div
       className={styles.fullScreenContainer}
@@ -41,8 +43,14 @@ export default function RenderLevel() {
       }}
     >
       <div className={styles.gameScreen}>
-        <LevelBackgroundTilesLayer level={level} />
-        <LevelPlacementsLayer level={level} />
+        <div
+          style={{
+            transform: cameraTranslate,
+          }}
+        >
+          <LevelBackgroundTilesLayer level={level} />
+          <LevelPlacementsLayer level={level} />
+        </div>
       </div>
       <FlourCount level={level} />
       {level.isCompleted && <LevelCompleteMessage />}

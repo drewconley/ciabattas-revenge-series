@@ -5,6 +5,7 @@ import { DirectionControls } from "./DirectionControls";
 import LevelsMap from "../levels/LevelsMap";
 import { Inventory } from "./Inventory";
 import { LevelAnimatedFrames } from "./LevelAnimatedFrames";
+import { Camera } from "./Camera";
 
 export class LevelState {
   constructor(levelId, onEmit) {
@@ -36,6 +37,9 @@ export class LevelState {
 
     // Cache a reference to the hero
     this.heroRef = this.placements.find((p) => p.type === PLACEMENT_TYPE_HERO);
+
+    // Create a camera
+    this.camera = new Camera(this);
 
     this.startGameLoop();
   }
@@ -70,6 +74,9 @@ export class LevelState {
 
     // Work on animation frames
     this.animatedFrames.tick();
+
+    // Update the camera
+    this.camera.tick();
 
     //Emit any changes to React
     this.onEmit(this.getState());
@@ -117,6 +124,8 @@ export class LevelState {
       placements: this.placements,
       deathOutcome: this.deathOutcome,
       isCompleted: this.isCompleted,
+      cameraTransformX: this.camera.transformX,
+      cameraTransformY: this.camera.transformY,
     };
   }
 
