@@ -92,6 +92,13 @@ export class LevelState {
     });
   }
 
+  stealInventory() {
+    this.placements.forEach((p) => {
+      p.resetHasBeenCollected();
+    });
+    this.inventory.clear();
+  }
+
   setDeathOutcome(causeOfDeath) {
     this.deathOutcome = causeOfDeath;
     this.gameLoop.stop();

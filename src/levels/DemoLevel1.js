@@ -19,6 +19,7 @@ import {
   PLACEMENT_TYPE_SWITCH_DOOR,
   PLACEMENT_TYPE_SWITCH,
   PLACEMENT_TYPE_TELEPORT,
+  PLACEMENT_TYPE_THIEF,
 } from "../helpers/consts";
 
 const level = {
@@ -28,6 +29,8 @@ const level = {
   placements: [
     { x: 2, y: 2, type: PLACEMENT_TYPE_HERO },
     { x: 7, y: 4, type: PLACEMENT_TYPE_GOAL },
+
+    { x: 3, y: 1, type: PLACEMENT_TYPE_THIEF },
 
     { x: 3, y: 2, type: PLACEMENT_TYPE_TELEPORT },
     { x: 7, y: 6, type: PLACEMENT_TYPE_TELEPORT },

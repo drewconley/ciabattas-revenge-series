@@ -19,6 +19,7 @@ import {
   PLACEMENT_TYPE_SWITCH_DOOR,
   PLACEMENT_TYPE_SWITCH,
   PLACEMENT_TYPE_TELEPORT,
+  PLACEMENT_TYPE_THIEF,
 } from "../helpers/consts";
 import { HeroPlacement } from "../game-objects/HeroPlacement";
 import { GoalPlacement } from "../game-objects/GoalPlacement";
@@ -40,6 +41,7 @@ import { FirePickupPlacement } from "../game-objects/FirePickupPlacement";
 import { SwitchableDoorPlacement } from "../game-objects/SwitchableDoorPlacement";
 import { DoorSwitchPlacement } from "../game-objects/DoorSwitchPlacement";
 import { TeleportPlacement } from "../game-objects/TeleportPlacement";
+import { ThiefPlacement } from "../game-objects/ThiefPlacement";
 
 const placementTypeClassMap = {
   [PLACEMENT_TYPE_HERO]: HeroPlacement,
@@ -62,6 +64,7 @@ const placementTypeClassMap = {
   [PLACEMENT_TYPE_SWITCH_DOOR]: SwitchableDoorPlacement,
   [PLACEMENT_TYPE_SWITCH]: DoorSwitchPlacement,
   [PLACEMENT_TYPE_TELEPORT]: TeleportPlacement,
+  [PLACEMENT_TYPE_THIEF]: ThiefPlacement,
 };
 
 class PlacementFactory {
