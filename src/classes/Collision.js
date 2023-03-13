@@ -81,4 +81,11 @@ export class Collision {
       return p.switchesDoorsOnCollide(this.forBody);
     });
   }
+
+  withTeleport() {
+    return this.placementsAtPosition.find((p) => {
+      const teleportPos = p.teleportsToPositionOnCollide(this.forBody);
+      return Boolean(teleportPos);
+    });
+  }
 }
