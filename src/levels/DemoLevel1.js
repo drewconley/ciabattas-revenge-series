@@ -13,11 +13,12 @@ import {
   PLACEMENT_TYPE_WATER_PICKUP,
   PLACEMENT_TYPE_ICE_PICKUP,
   // PLACEMENT_TYPE_ROAMING_ENEMY,
-  PLACEMENT_TYPE_GROUND_ENEMY,
-  PLACEMENT_TYPE_FLYING_ENEMY,
+  // PLACEMENT_TYPE_GROUND_ENEMY,
+  // PLACEMENT_TYPE_FLYING_ENEMY,
   PLACEMENT_TYPE_FIRE_PICKUP,
   PLACEMENT_TYPE_SWITCH_DOOR,
   PLACEMENT_TYPE_SWITCH,
+  PLACEMENT_TYPE_TELEPORT,
 } from "../helpers/consts";
 
 const level = {
@@ -26,8 +27,11 @@ const level = {
   tilesHeight: 8,
   placements: [
     { x: 2, y: 2, type: PLACEMENT_TYPE_HERO },
-    // { x: 2, y: 1, type: PLACEMENT_TYPE_GROUND_ENEMY },
     { x: 7, y: 4, type: PLACEMENT_TYPE_GOAL },
+
+    { x: 3, y: 2, type: PLACEMENT_TYPE_TELEPORT },
+    { x: 7, y: 6, type: PLACEMENT_TYPE_TELEPORT },
+    { x: 2, y: 6, type: PLACEMENT_TYPE_TELEPORT },
 
     { x: 7, y: 1, type: PLACEMENT_TYPE_SWITCH_DOOR, isRaised: false },
     { x: 4, y: 3, type: PLACEMENT_TYPE_SWITCH_DOOR, isRaised: true },
