@@ -5,6 +5,7 @@ import LevelPlacementsLayer from "./LevelPlacementsLayer";
 import { useEffect, useState } from "react";
 import { LevelState } from "../../classes/LevelState";
 import FlourCount from "../hud/FlourCount";
+import ClockCount from "../hud/ClockCount";
 import LevelCompleteMessage from "../hud/LevelCompleteMessage";
 import DeathMessage from "../hud/DeathMessage";
 import { useRecoilValue } from "recoil";
@@ -53,6 +54,7 @@ export default function RenderLevel() {
         </div>
       </div>
       <FlourCount level={level} />
+      <ClockCount level={level} />
       {level.isCompleted && <LevelCompleteMessage />}
       {level.deathOutcome && <DeathMessage level={level} />}
     </div>
