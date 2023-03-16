@@ -32,24 +32,24 @@ canvas {
     }
 }
 /* 3x */
-/*@media(min-width: 540px) {*/
-/*    :root {*/
-/*        --pixel-size: 3;*/
-/*    }*/
-/*}*/
-/* Taking these out just for recording on a small screen! */
-/* 4x */
-/*@media(min-width: 720px) {*/
-/*    :root {*/
-/*        --pixel-size: 4;*/
-/*    }*/
-/*}*/
-/*!* 5x *!*/
-/*@media(min-width: 900px) {*/
-/*    :root {*/
-/*        --pixel-size: 5;*/
-/*    }*/
-/*}*/
+@media(min-width: 540px) {
+    :root {
+        --pixel-size: 3;
+    }
+}
+
+ /*4x*/
+@media(min-width: 720px) {
+    :root {
+        --pixel-size: 4;
+    }
+}
+/* 5x */
+@media(min-width: 900px) {
+    :root {
+        --pixel-size: 5;
+    }
+}
 /*!* 6x *!*/
 /*@media(min-width: 1080px) {*/
 /*    :root {*/
