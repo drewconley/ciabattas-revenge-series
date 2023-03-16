@@ -27,7 +27,7 @@ const level = {
   tilesWidth: 8,
   tilesHeight: 8,
   placements: [
-    { x: 2, y: 2, type: PLACEMENT_TYPE_HERO },
+    { x: 6, y: 5, type: PLACEMENT_TYPE_HERO },
     { x: 7, y: 4, type: PLACEMENT_TYPE_GOAL },
 
     { x: 3, y: 1, type: PLACEMENT_TYPE_THIEF },
