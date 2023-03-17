@@ -7,6 +7,7 @@
     --game-viewport-height: 180px;
     --game-cell-size: 16px;
     --pixel-size: 1;
+    --ui-popup-z-index: 500;
 }
 
 html, body {
