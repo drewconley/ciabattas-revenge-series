@@ -134,6 +134,9 @@ export class LevelState {
       cameraTransformX: this.camera.transformX,
       cameraTransformY: this.camera.transformY,
       secondsRemaining: this.clock.secondsRemaining,
+      restart: () => {
+        this.start();
+      },
     };
   }
 

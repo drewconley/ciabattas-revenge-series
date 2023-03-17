@@ -51,10 +51,10 @@ export default function RenderLevel() {
           <LevelBackgroundTilesLayer level={level} />
           <LevelPlacementsLayer level={level} />
         </div>
+        {level.isCompleted && <LevelCompleteMessage />}
+        {level.deathOutcome && <DeathMessage level={level} />}
       </div>
       <TopHud level={level} />
-      {level.isCompleted && <LevelCompleteMessage />}
-      {level.deathOutcome && <DeathMessage level={level} />}
     </div>
   );
 }
