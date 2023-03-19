@@ -8,6 +8,7 @@ import {
   Z_INDEX_LAYER_SIZE,
 } from "../helpers/consts";
 import { Collision } from "../classes/Collision";
+import soundsManager, { SFX } from "../classes/Sounds";
 
 export class BodyPlacement extends Placement {
   getCollisionAtNextPosition(direction) {
@@ -108,6 +109,7 @@ export class BodyPlacement extends Placement {
         x: this.x,
         y: this.y,
       });
+      soundsManager.playSfx(SFX.COLLECT);
     }
 
     // Auto moving (Conveyors, Ice, etc)
@@ -132,6 +134,7 @@ export class BodyPlacement extends Placement {
       const pos = teleport.teleportsToPositionOnCollide(this);
       this.x = pos.x;
       this.y = pos.y;
+      soundsManager.playSfx(SFX.TELEPORT);
     }
 
     // Damaging and death
@@ -144,6 +147,7 @@ export class BodyPlacement extends Placement {
     const completesLevel = collision.withCompletesLevel();
     if (completesLevel) {
       this.level.completeLevel();
+      soundsManager.playSfx(SFX.WIN);
     }
   }
 
