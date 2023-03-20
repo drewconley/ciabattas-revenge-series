@@ -9,6 +9,7 @@ import {
   PLACEMENT_TYPE_FLYING_ENEMY,
   PLACEMENT_TYPE_ROAMING_ENEMY,
   PLACEMENT_TYPE_WATER,
+  PLACEMENT_TYPE_CIABATTA,
 } from "../../helpers/consts";
 import { useKeyPress } from "../../hooks/useKeyPress";
 
@@ -48,6 +49,16 @@ const showDeathType = (deathType) => {
           }}
         >
           <Sprite frameCoord={TILES.ENEMY_FLYING_RIGHT} size={32} />
+        </div>
+      );
+    case PLACEMENT_TYPE_CIABATTA:
+      return (
+        <div
+          style={{
+            paddingBottom: 4,
+          }}
+        >
+          <Sprite frameCoord={TILES.CIABATTA_RIGHT} size={48} />
         </div>
       );
     default:
