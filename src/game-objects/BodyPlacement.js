@@ -140,7 +140,7 @@ export class BodyPlacement extends Placement {
     // Damaging and death
     const takesDamages = collision.withSelfGetsDamaged();
     if (takesDamages) {
-      this.level.setDeathOutcome(takesDamages.type);
+      this.takesDamage(takesDamages.type);
     }
 
     // Finishing the level
@@ -149,6 +149,10 @@ export class BodyPlacement extends Placement {
       this.level.completeLevel();
       soundsManager.playSfx(SFX.WIN);
     }
+  }
+
+  takesDamage() {
+    return null;
   }
 
   getYTranslate() {

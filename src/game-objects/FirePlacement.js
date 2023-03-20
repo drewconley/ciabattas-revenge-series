@@ -4,6 +4,7 @@ import {
   PLACEMENT_TYPE_HERO,
   PLACEMENT_TYPE_FIRE_PICKUP,
   BODY_SKINS,
+  PLACEMENT_TYPE_CIABATTA,
 } from "../helpers/consts";
 
 export class FirePlacement extends Placement {
@@ -15,6 +16,11 @@ export class FirePlacement extends Placement {
     ) {
       return this.type;
     }
+
+    if (body.type === PLACEMENT_TYPE_CIABATTA) {
+      return this.type;
+    }
+
     return null;
   }
 

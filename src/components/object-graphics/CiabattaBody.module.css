@@ -1,0 +1,9 @@
+.ciabatta {
+    position: relative;
+}
+
+.ciabattaBody {
+    position: absolute;
+    left: -16px;
+    top: -33px;
+}
