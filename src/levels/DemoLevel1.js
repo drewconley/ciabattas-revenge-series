@@ -19,8 +19,8 @@ import {
   PLACEMENT_TYPE_SWITCH_DOOR,
   PLACEMENT_TYPE_SWITCH,
   PLACEMENT_TYPE_TELEPORT,
-  PLACEMENT_TYPE_THIEF,
-  PLACEMENT_TYPE_CIABATTA,
+  //PLACEMENT_TYPE_THIEF,
+  //PLACEMENT_TYPE_CIABATTA,
 } from "../helpers/consts";
 
 const level = {
@@ -31,7 +31,7 @@ const level = {
     { x: 6, y: 5, type: PLACEMENT_TYPE_HERO },
     { x: 7, y: 4, type: PLACEMENT_TYPE_GOAL },
 
-    { x: 3, y: 1, type: PLACEMENT_TYPE_CIABATTA },
+    //{ x: 3, y: 1, type: PLACEMENT_TYPE_CIABATTA },
     { x: 5, y: 1, type: PLACEMENT_TYPE_FIRE },
 
     { x: 3, y: 2, type: PLACEMENT_TYPE_TELEPORT },
