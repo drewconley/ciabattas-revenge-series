@@ -1,4 +1,9 @@
-import { PLACEMENT_TYPE_WALL, PLACEMENT_TYPE_FIRE } from "../../helpers/consts";
+import {
+  PLACEMENT_TYPE_WALL,
+  PLACEMENT_TYPE_FIRE,
+  PLACEMENT_TYPE_WATER,
+} from "../../helpers/consts";
+import styles from "./EditorDropdown.module.css";
 
 export default function EditorDropdown({ level }) {
   if (!level.enableEditing) {
@@ -6,16 +11,24 @@ export default function EditorDropdown({ level }) {
   }
 
   return (
-    <div>
+    <div className={styles.dropdownContainer}>
       <select
         value={level.editModePlacementType}
         onChange={(event) => {
           level.setEditModePlacementType(event.target.value);
         }}
       >
-        <option>{PLACEMENT_TYPE_WALL}</option>
-        <option>{PLACEMENT_TYPE_FIRE}</option>
+        <option value={PLACEMENT_TYPE_WALL}>Wall</option>
+        <option value={PLACEMENT_TYPE_FIRE}>Fire</option>
+        <option value={PLACEMENT_TYPE_WATER}>Water</option>
       </select>
+      <button
+        onClick={() => {
+          level.copyPlacementsToClipboard();
+        }}
+      >
+        Get JSON
+      </button>
     </div>
   );
 }

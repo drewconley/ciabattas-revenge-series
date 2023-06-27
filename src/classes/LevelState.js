@@ -152,6 +152,28 @@ export class LevelState {
       setEditModePlacementType: (newType) => {
         this.editModePlacementType = newType;
       },
+      copyPlacementsToClipboard: () => {
+        // Convert the Placements to type,x,y JSON
+        const placementsData = this.placements.map((p) => {
+          return {
+            type: p.type,
+            x: p.x,
+            y: p.y,
+          };
+        });
+        // Copy the data to the clipboard for moving into map files after editing
+        navigator.clipboard.writeText(JSON.stringify(placementsData)).then(
+          () => {
+            console.log("Content copied to clipboard");
+
+            // Also console log the output
+            console.log(placementsData);
+          },
+          () => {
+            console.error("Failed to copy");
+          }
+        );
+      },
     };
   }
 
