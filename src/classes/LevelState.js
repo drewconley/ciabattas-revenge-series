@@ -83,7 +83,7 @@ export class LevelState {
     this.camera.tick();
 
     // Update the clock
-    this.clock.tick();
+    //this.clock.tick(); // TODO - put me back
 
     //Emit any changes to React
     this.onEmit(this.getState());
@@ -137,6 +137,12 @@ export class LevelState {
       inventory: this.inventory,
       restart: () => {
         this.start();
+      },
+      addPlacement: (config) => {
+        this.addPlacement(config);
+      },
+      deletePlacement: (config) => {
+        this.deletePlacement(config);
       },
     };
   }

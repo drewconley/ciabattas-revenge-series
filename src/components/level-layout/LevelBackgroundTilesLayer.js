@@ -39,6 +39,7 @@ export default function LevelBackgroundTilesLayer({ level }) {
           x={x}
           y={y}
           frameCoord={getBackgroundTile(x, y)}
+          level={level}
         />
       );
     }
