@@ -1,4 +1,4 @@
-import { PLACEMENT_TYPE_HERO } from "../helpers/consts";
+import { PLACEMENT_TYPE_HERO, PLACEMENT_TYPE_WALL } from "../helpers/consts";
 import { placementFactory } from "./PlacementFactory";
 import { GameLoop } from "./GameLoop";
 import { DirectionControls } from "./DirectionControls";
@@ -13,6 +13,7 @@ export class LevelState {
     this.id = levelId;
     this.onEmit = onEmit;
     this.directionControls = new DirectionControls();
+    this.editModePlacementType = PLACEMENT_TYPE_WALL;
 
     //Start the level!
     this.start();
@@ -138,11 +139,18 @@ export class LevelState {
       restart: () => {
         this.start();
       },
+
+      // Edit Mode API
+      enableEditing: true,
+      editModePlacementType: this.editModePlacementType,
       addPlacement: (config) => {
         this.addPlacement(config);
       },
       deletePlacement: (config) => {
         this.deletePlacement(config);
+      },
+      setEditModePlacementType: (newType) => {
+        this.editModePlacementType = newType;
       },
     };
   }

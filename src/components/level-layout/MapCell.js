@@ -1,5 +1,5 @@
 import Sprite from "../object-graphics/Sprite";
-import { CELL_SIZE, PLACEMENT_TYPE_WALL } from "../../helpers/consts";
+import { CELL_SIZE } from "../../helpers/consts";
 
 export default function MapCell({ x, y, level, frameCoord }) {
   return (
@@ -10,16 +10,13 @@ export default function MapCell({ x, y, level, frameCoord }) {
         top: y * CELL_SIZE,
       }}
       onClick={() => {
-        level.addPlacement({
-          x: x,
-          y: y,
-          type: PLACEMENT_TYPE_WALL,
-        });
-        console.log("CLICKED!", level);
-
-        // level.deletePlacement() {
-        //
-        // }
+        if (level.enableEditing) {
+          level.addPlacement({
+            x: x,
+            y: y,
+            type: level.editModePlacementType,
+          });
+        }
       }}
     >
       <Sprite frameCoord={frameCoord} />

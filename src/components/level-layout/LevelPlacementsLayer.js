@@ -17,10 +17,10 @@ export default function LevelPlacementsLayer({ level }) {
           key={placement.id}
           style={style}
           onClick={() => {
-            if (!placement.canBeDeleted()) {
+            // Make sure we are able to edit
+            if (!level.enableEditing || !placement.canBeDeleted()) {
               return;
             }
-
             level.deletePlacement(placement);
           }}
         >
