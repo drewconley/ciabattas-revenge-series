@@ -13,7 +13,16 @@ export default function LevelPlacementsLayer({ level }) {
       };
 
       return (
-        <div key={placement.id} style={style}>
+        <div
+          key={placement.id}
+          style={style}
+          onClick={() => {
+            if (!level.enableEditing || !placement.canBeDeleted()) {
+              return;
+            }
+            level.deletePlacement(placement);
+          }}
+        >
           {placement.renderComponent()}
         </div>
       );

@@ -93,6 +93,10 @@ export class HeroPlacement extends BodyPlacement {
     return heroSkinMap[this.skin][index];
   }
 
+  canBeDeleted() {
+    return false;
+  }
+
   renderComponent() {
     const showShadow = this.skin !== BODY_SKINS.WATER;
     return (

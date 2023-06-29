@@ -112,6 +112,10 @@ export class Placement {
     return 1;
   }
 
+  canBeDeleted() {
+    return true;
+  }
+
   renderComponent() {
     return null;
   }

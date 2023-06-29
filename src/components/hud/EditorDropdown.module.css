@@ -1,0 +1,25 @@
+.dropdownContainer {
+  display: flex;
+  gap: 1rem;
+}
+.dropdownContainer select {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+}
+
+.dropdownContainer button {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+}
+.dropdownContainer button:active {
+  position: relative;
+  top:1px;
+  color: greenyellow;
+  border-color: greenyellow;
+}
