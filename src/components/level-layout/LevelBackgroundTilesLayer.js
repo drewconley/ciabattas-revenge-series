@@ -36,6 +36,7 @@ export default function LevelBackgroundTilesLayer({ level }) {
       canvases.push(
         <MapCell
           key={`${x}_${y}`}
+          level={level}
           x={x}
           y={y}
           frameCoord={getBackgroundTile(x, y)}

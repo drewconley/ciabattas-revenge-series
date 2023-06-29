@@ -15,6 +15,10 @@ export class GoalPlacement extends Placement {
     return !this.isDisabled;
   }
 
+  canBeDeleted() {
+    return false;
+  }
+
   renderComponent() {
     return (
       <Sprite
